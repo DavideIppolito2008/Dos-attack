@@ -4,7 +4,7 @@
 #include <curl/curl.h>
 #include <mutex>
 #include <chrono>
-
+using namespace std;
 std::mutex print_mutex;
 
 void send_request(int i, const std::string& url) {
@@ -27,10 +27,16 @@ void send_request(int i, const std::string& url) {
 }
 
 int main() {
-    const std::string url = "https://sitelink.com";
-    const int total_requests = 10000;// Total number of requests to send
-    const int max_threads = 100; // Maximum number of concurrent threads depends on system resources
+    std::string url = "";
+    int total_requests = 10 ;// Total number of requests to send
+    int max_threads = 1; // Maximum number of concurrent threads depends on system resources
 
+    cout<<"inserisci il numero di richieste da inviare: ";
+    std::cin >> total_requests;
+    cout<<"inserisci il numero di thread da utilizzare: ";
+    std::cin >> max_threads;
+    cout<< "URL da utilizzare: ";
+    std::cin >> url;
     std::vector<std::thread> threads;
     int i = 0;
 
@@ -49,3 +55,4 @@ int main() {
 
     return 0;
 }
+
