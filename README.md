@@ -27,3 +27,7 @@ L’obiettivo è simulare condizioni di **alto carico di rete** in ambienti cont
    ```bash
    git clone https://github.com/USERNAME/dos-attack.git
    cd dos-attack
+   g++ -o load_test load_test.cpp
+   ./load_test 127.0.0.1 8080
+
+
